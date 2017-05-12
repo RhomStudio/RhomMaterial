@@ -1,17 +1,24 @@
-// Each #kernel tells which function to compile; you can have many kernels
 #pragma kernel CSMain
 
-// Create a RenderTexture with enableRandomWrite flag and set it
-// with cs.SetTexture
+RWTexture2D<float4> result;
+RWTexture2D<float4> resultNormalMap;
 
-RWTexture2D<float4> Result;
+Texture2D<float4> albedo;
+Texture2D<float4> metallic;
+Texture2D<float4> normalMap;
+Texture2D<float4> heightMap;
+Texture2D<float4> oclussion;
+Texture2D<float4> emission;
 
-//Texture2D<float4> Texture1;
+int offset;
+int feather;
 
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-	// TODO: insert actual code here!
-
-	Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
+	if ((resultNormalMap[id.xy].r) > (normalMap[id.xy].r + offset))
+	{
+		
+	}
+	//Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
 }
