@@ -12,13 +12,24 @@ Texture2D<float4> emission;
 
 int offset;
 int feather;
+float percentFeather = feather / 100;
 
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-	if ((resultNormalMap[id.xy].r) > (normalMap[id.xy].r + offset))
+	uint difference;
+	difference = resultNormalMap[id.xy].r - (normalMap[id.xy].r + offset);
+	absoluteDifference = abs (difference);
+	
+	if (absoluteDifference <= feather)
 	{
-		
+		if ()
+	} else {
+		//if difference > 0 then resultNormalMap == resultNormalMap
+		if (difference < 0) 
+		{
+			resultNormalMap[id.xy] = normalMap[id.xy];
+		}
 	}
 	//Result[id.xy] = float4(id.x & id.y, (id.x & 15)/15.0, (id.y & 15)/15.0, 0.0);
 }
