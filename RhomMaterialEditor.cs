@@ -1,16 +1,4 @@
-RhomMaterialEditor.cs
-СВОЙСТВА
-СТАТИСТИКА
-Сегодня
-R
-Вы загрузили 1 объект
-10:49
-Текст
-RhomMaterialEditor.cs
-Статистики до 12 мая 2017 г. нет
-Выбор всех объектов отменен Выбор всех объектов отменен Выбор всех объектов отменен
-
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
